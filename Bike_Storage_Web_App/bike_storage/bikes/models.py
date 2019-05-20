@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Bike(models.Model):
 
-    bike_id = models.IntegerField(primary_key=True)
+    bike_id = models.IntegerField(primary_key=True, validators=[MinValueValidator(0)])
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=800)
     rating = models.FloatField(default=0.0, validators=[MaxValueValidator(10.0), MinValueValidator(0.0)])
