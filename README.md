@@ -12,6 +12,6 @@ Django (v2.1.4)
 
 ### How to launch this web app:
 
-1. Fire up a terminal, go to the directory where you stored your downloaded folder and type in `sh bike_prep.sh`.
+1. Fire up a terminal, navigate to the `Bike_Storage_Web_App` directory and type in `sh bike_prep.sh`.
 
 2. **Open a new terminal in the same directory**, and type in `sh bike_init.sh`. It would automatically launch your default web browser and you will see the storage interface, powered by Django.
