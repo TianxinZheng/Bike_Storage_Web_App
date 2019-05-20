@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{object.bike_id}}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<style>
+
+	h1, h2, h3, h4, h5, h6 {
+  	font-family: Georgia, serif;
+  	letter-spacing: 1px;
+	}
+
+  .img1 img {
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:600px;
+	margin:auto;
+  }
+	</style>
+</head>
+<body>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64">
+  	<div class="w3-col m6 w3-padding-large w3-hide-small img img1">
+    	<img src="{{ object.cover.url }}" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="300" height="500">
+    </div>
+
+    <div class="w3-col m6 w3-light-grey w3-padding-large">
+      	<h2 class="w3-center"><p><strone>{{object.name}}</strong></h2><br>
+      	<h5 class="w3-center"><p><strong>Rating:</strong> {{ object.rating }} </h5>
+      	<h5 class="w3-center"><p><strong>Price: $</strong> {{ object.price }} </h5>
+      	<h5 class="w3-center"><p><strong>Quantity:</strong> {{object.quantity}}</h5>
+      	<h5 class="w3-center"><p><strong>Bike Type:</strong> {{object.bike_type}}</h5>
+				<h5 class="w3-center"><p><strong>Description: </strong> {{ object.description }} </h5>
+    </div>
+  </div>
+</body>
+
+<!-- Footer -->
+
+<footer class="w3-center w3-light-grey w3-padding-16 back">
+
+  <p style="font-size:30px"><a href="{% url 'bike_list' %}" class="w3-hover-text-green"> back to home page</a></p>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home page</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+      <style media="screen">
+        #title {
+       	 text-align: center;
+        }
+
+        * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+        }
+
+        body {
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+         color: #333;
+        }
+
+        table {
+         text-align: left;
+         line-height: 40px;
+         border-collapse: separate;
+         border-spacing: 0;
+         border: 2px solid #109177;
+         width: 500px;
+         margin: 50px auto;
+         border-radius: .25rem;
+        }
+
+        thead tr:first-child {
+         background: #109177;
+         color: #FFFFF0;
+         border: none;
+       }
+
+
+       th:first-child,
+       td:first-child {
+         padding: 0 15px 0 20px;
+       }
+
+       th {
+         font-weight: 500;
+       }
+
+       thead tr:last-child th {
+         border-bottom: 3px solid #ddd;
+       }
+
+       tbody tr:hover {
+         background-color: #f2f2f2;
+         cursor: default;
+       }
+
+       tbody tr:last-child td {
+         border: none;
+       }
+
+       tbody td {
+         border-bottom: 1px solid #ddd;
+       }
+
+       td:last-child {
+         text-align: right;
+         padding-right: 10px;
+       }
+
+       .button {
+         cursor: pointer;
+         vertical-align: middle;
+         margin-top: -4px;
+       }
+
+
+       #add {
+         padding-right: 10px;
+         text-align: right;
+
+       }
+     </style>
+
+</head>
+<body>
+<h1 id='title'>Welcome to the bike storage management system</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Bikes in Storage</th>
+            <th id='add'><i class="material-icons button add"><a href="{% url 'bike_new' %}" style="color: #FFFFF0">add</th>
+        </tr>
+        <tr>
+            <th>id</th>
+            <th>Bike Name</th>
+            <th colspan="2">Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bike in object_list %}
+        <tr>
+            <td>{{ bike.bike_id }}</td>
+            <td><a href="{% url 'bike_detail' bike.bike_id %}">{{ bike.name }}</td>
+            <td>{{ bike.quantity }}</td>
+            <td>
+                <i class="material-icons button edit"><a href="{% url 'bike_edit' bike.bike_id %}">edit</i>
+                <i class="material-icons button delete"><a href="{% url 'bike_delete' bike.bike_id %}">delete</i>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<svg>
+  <script width="600" height="500">
+
+    var svg = d3.select("svg"),
+        margin = 200,
+        width = svg.attr("width") - margin,
+        height = svg.attr("height") - margin;
+
+
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range ([height, 0]);
+
+    var g = svg.append("g")
+               .attr("transform", "translate(" + 100 + "," + 100 + ")");
+
+  </script>
+</svg>
+
+
+</body>
+</html>
